@@ -2,6 +2,7 @@ import { ActionFunctionArgs } from '@remix-run/node';
 import SearchPage from '~/components/SearchPage';
 import { useActionData } from '@remix-run/react';
 import { fetchWeatherData } from '~/api';
+import WeatherDataPage from '~/components/WeatherDataPage';
 
 export function headers({
   loaderHeaders,
@@ -22,12 +23,10 @@ export function headers({
 
 export default function Index() {
   const data = useActionData();
-  console.log(data);
-  return (
-    <div>
-      <SearchPage />
-    </div>
-  );
+
+  const weatherDataMarkup = data ? <WeatherDataPage /> : <SearchPage />;
+
+  return <div>{weatherDataMarkup}</div>;
 }
 
 export async function action({ request }: ActionFunctionArgs) {

@@ -1,0 +1,2 @@
+1. refactor components to hierarchy system
+2. implement back button (create state (containing weather data or null) in index. In WeatherDataPage, pass function prop which makes the state null and renders the SearchPage again
