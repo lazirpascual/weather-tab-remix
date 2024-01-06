@@ -11,40 +11,40 @@ const getTime = (dateTime: number) => {
 
 export default function CurrentWeather() {
   const weatherData: any = useActionData();
-  const currentWeather = weatherData.dailyData[0];
+  const currentWeather = weatherData?.dailyData[0];
 
   const WeatherDetails = [
     {
       labelName: 'Humidity',
-      value: `${currentWeather.humidity}%`,
+      value: `${currentWeather?.humidity}%`,
     },
     {
       labelName: 'Air Pressure',
-      value: `${currentWeather.pressure} hPa`,
+      value: `${currentWeather?.pressure} hPa`,
     },
     {
       labelName: 'Feels Like',
-      value: `${Math.round(currentWeather.feels_like)}°C`,
+      value: `${Math.round(currentWeather?.feels_like)}°C`,
     },
     {
       labelName: 'Wind Speed',
-      value: `${(currentWeather.wind_speed * 3.6).toFixed(2)} km/h`,
+      value: `${(currentWeather?.wind_speed * 3.6).toFixed(2)} km/h`,
     },
     {
       labelName: 'Sunrise',
-      value: getTime(currentWeather.sunrise),
+      value: getTime(currentWeather?.sunrise),
     },
     {
       labelName: 'Sunset',
-      value: getTime(currentWeather.sunset),
+      value: getTime(currentWeather?.sunset),
     },
     {
       labelName: 'Clouds',
-      value: `${currentWeather.clouds}%`,
+      value: `${currentWeather?.clouds}%`,
     },
     {
       labelName: 'Precipitation',
-      value: `${Math.round(currentWeather.pop * 100)}%`,
+      value: `${Math.round(currentWeather?.pop * 100)}%`,
     },
   ];
 
@@ -62,9 +62,9 @@ export default function CurrentWeather() {
 
   return (
     <div className="h-auto w-96 bg-[#2d3550c9] shadow-xl rounded-lg text-lg p-5">
-      <div className="text-white text-3xl">Today's Weather </div>
-      <div className="text-white text-2xl pt-3">
-        {weatherData.location}, {weatherData.country}
+      <div className="text-white text-2xl">Today's Weather </div>
+      <div className="text-gray-400 text-xl pt-2">
+        {weatherData?.location}, {weatherData?.country}
       </div>
       {WeatherDetailsMarkup}
     </div>

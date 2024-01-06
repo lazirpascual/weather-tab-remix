@@ -1,8 +1,9 @@
-import { ActionFunctionArgs } from '@remix-run/node';
+import { ActionFunctionArgs, redirect } from '@remix-run/node';
 import SearchPage from '~/components/SearchPage';
 import WeatherDataPage from '~/components/WeatherDataPage';
 import { useActionData } from '@remix-run/react';
 import { fetchWeatherData } from '~/api';
+import { useEffect, useState } from 'react';
 
 export function headers({
   loaderHeaders,
@@ -23,8 +24,21 @@ export function headers({
 
 export default function Index() {
   const data = useActionData();
+  const [weatherData, setWeatherData] = useState<any>(data);
 
-  const weatherDataMarkup = data ? <WeatherDataPage /> : <SearchPage />;
+  useEffect(() => {
+    setWeatherData(data);
+  }, [data]);
+
+  const handleBackClick = () => {
+    setWeatherData(null);
+  };
+
+  const weatherDataMarkup = weatherData ? (
+    <WeatherDataPage handleBackClick={handleBackClick} />
+  ) : (
+    <SearchPage />
+  );
 
   return <div>{weatherDataMarkup}</div>;
 }
