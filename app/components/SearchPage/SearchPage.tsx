@@ -5,14 +5,13 @@ export default function SearchPage() {
   const isSubmitting = navigation.state === 'submitting';
 
   return (
-    <div className="rounded-lg border p-3">
-      <h1 className="text-xl font-semibold mb-5">Please enter your location</h1>
+    <div className="flex justify-center items-center h-screen">
+      <div className="h-60 w-96 bg-[#2d3550c9] shadow-xl rounded-lg border p-3 flex flex-col justify-center items-center">
+        <h1 className="text-xl font-semibold mb-5 text-white">
+          Please enter your location
+        </h1>
 
-      <div>
         <Form method="POST">
-          <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
-            Search
-          </label>
           <div className="relative mb-5">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
@@ -41,15 +40,15 @@ export default function SearchPage() {
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="bg-teal-500 px-4 py-2 rounded-lg text-white"
-          >
-            {isSubmitting ? 'Loading...' : 'Submit'}
-          </button>
-
-          <div className="mt-5 flex flex-col gap-y-3"></div>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-teal-500 px-4 py-2 rounded-lg text-white"
+            >
+              {isSubmitting ? 'Loading...' : 'Submit'}
+            </button>
+          </div>
         </Form>
       </div>
     </div>

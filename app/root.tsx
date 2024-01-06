@@ -26,7 +26,10 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body
+        className="text-white"
+        style={{ backgroundImage: `url(https://i.imgur.com/Iwcvizh.jpg)` }}
+      >
         <Outlet />
         <ScrollRestoration />
         <Scripts />
