@@ -1,7 +1,6 @@
-import { Form, useActionData, useNavigation } from '@remix-run/react';
+import { Form, useNavigation } from '@remix-run/react';
 
 export default function SearchPage() {
-  const data = useActionData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
 

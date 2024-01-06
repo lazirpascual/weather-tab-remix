@@ -1,8 +1,8 @@
 import { ActionFunctionArgs } from '@remix-run/node';
 import SearchPage from '~/components/SearchPage';
+import WeatherDataPage from '~/components/WeatherDataPage';
 import { useActionData } from '@remix-run/react';
 import { fetchWeatherData } from '~/api';
-import WeatherDataPage from '~/components/WeatherDataPage';
 
 export function headers({
   loaderHeaders,
